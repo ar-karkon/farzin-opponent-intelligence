@@ -1,0 +1,21 @@
+# Copy this file to configs/players.yaml and replace placeholders with verified details.
+# FIDE IDs are mandatory; never resolve ambiguous players from name alone.
+players:
+  - fide_id: REPLACE_WITH_REAL_FIDE_ID_1
+    display_name: REPLACE_WITH_PLAYER_NAME_1
+    aliases: []
+    federation: REPLACE_WITH_FEDERATION
+    verification_source: REPLACE_WITH_OFFICIAL_IDENTITY_SOURCE
+  - fide_id: REPLACE_WITH_REAL_FIDE_ID_2
+    display_name: REPLACE_WITH_PLAYER_NAME_2
+    aliases: []
+    federation: REPLACE_WITH_FEDERATION
+    verification_source: REPLACE_WITH_OFFICIAL_IDENTITY_SOURCE
+  - fide_id: REPLACE_WITH_REAL_FIDE_ID_3
+    display_name: REPLACE_WITH_PLAYER_NAME_3
+    aliases: []
+    federation: REPLACE_WITH_FEDERATION
+    verification_source: REPLACE_WITH_OFFICIAL_IDENTITY_SOURCE
+
+# Add verified non-target opponents here when PGN headers lack reliable FIDE IDs.
+identity_map: []
