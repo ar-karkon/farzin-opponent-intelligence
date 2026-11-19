@@ -30,6 +30,15 @@ venv/
 *service-account*.json
 *.token
 
+# Local private research configuration and account-specific kernel metadata
+configs/players.yaml
+configs/ratings.csv
+configs/source_manifest.csv
+configs/game_reviews.csv
+kaggle/kernel-metadata.json
+kaggle_benchmark/kernel-metadata.json
+kaggle_benchmark/*_private/
+
 # Local data: only explicitly reviewed fixtures may be public
 data/*
 !data/README.md

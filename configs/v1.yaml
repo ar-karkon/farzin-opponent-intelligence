@@ -1,0 +1,67 @@
+project: foi
+version: 1
+purpose: offline-research-and-preparation
+cohort:
+  game_mode: classical
+  venue: over_the_board
+  rating_system: FIDE
+  primary_min_player_standard_elo: 2400
+  primary_min_opponent_standard_elo: 2400
+  exploratory_min_elo: 2200
+  initial_target_players: 3
+  desired_historical_games_per_player: [150, 400]
+  min_clean_games_for_first_prototype: 60
+  min_games_per_player_in_test_to_report_separately: 20
+  unknown_time_control_policy: quarantine_until_verified
+  absent_or_uncertain_fide_id_policy: manual_review
+sources:
+  pgn_priority: [official_tournament_pgn, the_week_in_chess, verified_federation_pgn]
+  rating_history: official_fide_monthly_standard
+  deduplication: normalized_game_identity_and_moves
+  track_provenance: true
+  respect_terms_of_use: true
+positions:
+  target_side_only: true
+  label: actual_move_uci
+  history: past_moves_only
+  include_all_legal_moves: true
+  excluded: [illegal_or_unparseable, unverified_classical, unverified_player_identity]
+  phase_slices: [opening, middlegame, endgame]
+  opening_slices: [all, known_opening, novel_opening, move_16_plus]
+models:
+  primary: dsc-150m
+  secondary: maia3-79m
+  dsc_history: true
+  maia_history: true
+  dsc_time_control: classical
+  dsc_rating_system: FIDE
+  elo: historical_rating_at_game_date
+  freeze_baselines: true
+  personalization: regularized_residual_policy
+  stockfish: optional_fixed_budget_features
+splits:
+  unit: entire_game
+  order: chronological
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  historical_test_fraction: 0.15
+  globally_consistent_when_targets_play_each_other: true
+  strict_post_release_test_start: '2026-10-24'
+  strict_test_policy: quarantine_for_prospective_or_post_release_scoring
+  require_frozen_model_config_before_test: true
+evaluation:
+  primary: [top1_accuracy, top3_accuracy, negative_log_likelihood]
+  secondary: [top5_accuracy, brier_score, expected_calibration_error]
+  bootstrap_unit: game
+  bootstrap_iterations: 2000
+  report_per_player: true
+  report_by_color: true
+  report_by_phase: true
+  report_by_opening_familiarity: true
+  paired_comparisons: true
+  exclude_sampling_temperature_from_probability_scoring: true
+storage:
+  code: git_repository
+  checkpoints: external_private_storage
+  molab_notebook: ephemeral_execution_only
+  publish_player_data: false

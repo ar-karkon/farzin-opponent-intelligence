@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "title": "FOI version 1 game record",
+  "required": [
+    "game_id",
+    "date",
+    "white_fide_id",
+    "black_fide_id",
+    "white_elo_at_game",
+    "black_elo_at_game",
+    "time_control_verified",
+    "venue_verified",
+    "source_url",
+    "pgn",
+    "split"
+  ],
+  "properties": {
+    "game_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "white_fide_id": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "black_fide_id": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "white_elo_at_game": {
+      "type": "integer"
+    },
+    "black_elo_at_game": {
+      "type": "integer"
+    },
+    "time_control_verified": {
+      "const": true
+    },
+    "venue_verified": {
+      "const": true
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": ["twic", "manual"]
+    },
+    "source_license": {
+      "type": "string"
+    },
+    "source_issue": {
+      "type": "string"
+    },
+    "time_control_evidence": {
+      "type": "string"
+    },
+    "venue_evidence": {
+      "type": "string"
+    },
+    "rating_sources": {
+      "type": "object",
+      "properties": {
+        "white": {"type": ["string", "null"]},
+        "black": {"type": ["string", "null"]}
+      }
+    },
+    "pgn": {
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "validation",
+        "historical_test",
+        "post_release_test",
+        "quarantine"
+      ]
+    }
+  }
+}

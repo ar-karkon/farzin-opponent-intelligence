@@ -22,7 +22,7 @@ Read [AGENTS.md](AGENTS.md), [Publication Policy](docs/PUBLICATION_POLICY.md), a
 4. Open a pull request explaining its scope, tests, data/permission review, and compatibility.
 5. Do not include binary checkpoints or personal credentials in the pull request.
 
-Installation commands, dependency pinning, and specific test commands will be added when the local FOI v1 code is migrated and verified.
+Install with `python -m pip install -e '.[dev]'`, then run `python -m unittest discover -s tests -p 'test_*.py'`, `ruff check .`, and `python scripts/publication_safety.py`. Tests use synthetic fixtures only. GPU/model checks are optional and must not use public data or CI credentials.
 
 ## License and attribution
 
