@@ -11,10 +11,10 @@
 ## Withheld from the public tree
 
 - All local `data/raw/**` and `data/processed/**`, including the supplied real-player PGN, candidate/validation/train/test PGNs, processed game manifests, event verification records, and all derived games/positions/labels.
-- All player-specific reports and benchmark outputs under `reports/pourramezanali/**`, `reports/kaggle/pourramezanali-*/**`, and other private Kaggle output directories. This includes per-position predictions, individual behavior analysis, reports, metrics, logs and run metadata.
+- All player-specific reports and benchmark outputs under `reports/` and private Kaggle output directories. This includes per-position predictions, individual behavior analysis, reports, metrics, logs and run metadata.
 - Kaggle private dataset payloads and account-specific kernel metadata; only a generic example metadata file is published.
 - Target-specific config, local ratings, source manifests, review ledgers, credentials, caches, bytecode and local software binaries.
-- The scripts dedicated to the supplied player's private corpus and behavioral analysis. Generic validator/evaluator code is published.
+- Scripts dedicated to one supplied player's private corpus and behavioral analysis. Generic validator/evaluator code is published.
 
 ## Third-party / license review
 
