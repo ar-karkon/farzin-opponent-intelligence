@@ -1,0 +1,73 @@
+# Python environments, cache, and build outputs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+
+# Kaggle / cloud / SSH credentials
+**/kaggle.json
+**/.kaggle/
+**/.aws/
+**/.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*.json
+*service_account*.json
+*service-account*.json
+*.token
+
+# Local data: only explicitly reviewed fixtures may be public
+data/*
+!data/README.md
+!data/fixtures/
+!data/fixtures/**
+*.pgn
+*.pgn.gz
+!data/fixtures/*.pgn
+!data/fixtures/**/*.pgn
+
+# Checkpoints, weights, experiments, and local Kaggle outputs
+checkpoints/
+models/
+weights/
+artifacts/
+runs/
+outputs/
+wandb/
+mlruns/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.npy
+*.npz
+
+# Reports are private until explicitly reviewed and copied to reports/public/
+reports/*
+!reports/README.md
+!reports/public/
+!reports/public/**
+/tmp/
+*.log
+
+# Misc
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
